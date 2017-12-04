@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<!--
+  File: /~tvo2/461f2017/hw5/461f20175.html
+  4610 Assignment: Using the jQuery UI Slider and Tab Widgets
+  William Vo, Umass Lowell Computer Science, william_vo@student.uml.edu
+  Copyright (c) 2017 by William Vo. All rights reserved. May be freelly
+      coppied or excerpted for educational purposes with credit to the author.
+  Updated by William on December 02, 2017 at 8:50 AM
+-->
+<html lang="en">
+<!-- Name header here -->
+    <head>
+      <meta charset="utf-8">
+      <title>Using the jQuery UI Slider and Tab Widgets</title>
+      <link type="text/css" href="midterm.css" rel="stylesheet" >
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--  <script src="_js/jquery.min.js"></script>
+      <script src="jquery_validate/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   -->
+    <!--  <script src="jquery-ui-1.12.1/jquery-3.2.1.js"></script>
+      <script scr="jquery-ui-1.12.1/jquery-ui.js"></script>
+
+      <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
+      <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+    <script src ="https://code.jquery.com/jquery-1.12.4.js"> </script>
+    <script src ="https://code.jquery.com/ui/1.12.1/jquery-ui.js"> </script>
+    <script  src="script.js"></script>
+
+      <script>
+        $(document).ready(function(){
+         $('#dealdata').validate({
+            rules: {
+              price: {
+                required: true,
+                number: true,
+                range: [0,5]
+              },
+              price1: {
+                required: true,
+                number: true,
+                range: [0,100000]
+              },
+              price2: {
+                required: true,
+                number: true,
+                range: [0,100000]
+              },
+              price3: {
+                required: true,
+                number: true,
+                range: [0,100000]
+              },
+              price4: {
+                required: true,
+                number: true,
+                range: [0,100000]
+              },
+              price5: {
+                required: true,
+                number: true,
+                range: [0,100000]
+              }, //end of price
+
+              mpg1: {
+                required: true,
+                number: true,
+                range: [0,50]
+              },
+              mpg2: {
+                required: true,
+                number: true,
+                range: [0,50]
+              },
+              mpg3: {
+                required: true,
+                number: true,
+                range: [0,50]
+              },
+              mpg4: {
+                required: true,
+                number: true,
+                range: [0,50]
+              } //end Fuel consumtion
+
+            }, // end rules
+            messages: {
+              price: {
+                required: "Enter value for pice of fule per galon i.e $2.99.",
+                number: "This is not valid value. Enter number, please!",
+                range: "Range in [0, 5]"
+              },
+              price1: {
+                required: "Enter valid number.",
+                number: "This is not valid value!",
+                range: "Range in [0, 100000]"
+              },
+              price2: {
+                required: "Enter valid number.",
+                number: "This is not valid value!",
+                range: "Range in [0, 100000]"
+              },
+              price3: {
+                required: "Enter valid number.",
+                number: "This is not valid value!",
+                range: "Range in [0, 100000]"
+              },
+              price4: {
+                required: "Enter valid number.",
+                number: "This is not valid value!",
+                range: "Range in [0, 100000]"
+              },
+              price5: {
+                required: "Enter valid number.",
+                number: "This is not valid value!",
+                range: "Range in [0, 100000]"
+              }, // Note: at the end of messages no comma.
+
+              mpg1: {
+                required: "Enter valid number.",
+                number: "Not a valid value!",
+                range: "Range in [0, 50]"
+              },
+              mpg2: {
+                required: "Enter valid number.",
+                number: "Not a valid value!",
+                range: "Range in [0, 50]"
+              },
+              mpg3: {
+                required: "Enter valid number.",
+                number: "Not a valid value!",
+                range: "Range in [0, 50]"
+              },
+              mpg4: {
+                required: "Enter valid number.",
+                number: "Not a valid value!",
+                range: "Range in [0, 50]"
+              } //end Fuel consumtion
+
+            } // end messages
+
+          }); // end validate
+          $('[title]').tooltip();
+        }); //end ready()
+      </script>
+    </head>
+    <body>
+        <header>
+          <h1>Using the jQuery UI Slider and Tab Widgets</h1>
+        </header>
+      <!--  <img src="img_tree.png" alt="Tree" width="350" height="500">
+       Creat the table, let input data be used which store in
+      form name dealdata -->
+
+        <form action="process.html" method="post" name="dealdata" id="dealdata">
+          <h2>Enter Information:</h2>
+          <div id="tabs">
+              <ul>
+                <li><a href="#tabs-1"><span>Nunc tincidunt</span></a></li>
+                <li><a href="#tabs-2"><span>Proin dolor</span></a></li>
+                <li><a href="#tabs-3"><span>Aenean lacinia</span></a></li>
+              </ul>
+          <div id="tabs-1" style="display: block;">
+            <div class="slide-wrapper">
+              <label for="price" class="label">Price Fuel:$</label>
+
+              <input type="text" id="price" name ="price" size="10"
+                title="Enter price of Fuel, .i.e $2.99" onchange="calculate();">
+              <div class="slider" id="myRange"> </div>
+
+          <!--Assum the price of car was paydown 20% and
+                 it will pay the rest in 03 years. -->
+            </div> <!--end slide-wrapper-->
+              <br>
+           <table class="stripeTable">
+            <col class="col0">
+	          <col class="col1">
+	          <col class="col0">
+	          <col class="col1">
+	          <col class="col0">
+            <col class="col1">
+            <tr class="fst">
+              <th >Price/Fuel<br>consumtion: </th>
+
+
+              <th>$<input type="text" id="price1" name="price1" size="8"
+                  title="Enter price of car." onchange="calculate();">
+                  <div class="slider" id="myRange1"></div></th>
+
+
+              <th>$<input type="text" id="price2" name="price2" size="8"
+                 title="Enter price of car." onchange="calculate();">
+              <div class="slider" id="myRange2"></div></th>
+
+              <th>$<input type="text" id="price3" name="price3" size="8"
+                title="Enter price of car." onchange="calculate();">
+                <div class="slider" id="myRange3"></div></th>
+              <th>$<input type="text" id="price4" name="price4" size="8"
+                title="Enter price of car." onchange="calculate();">
+                <div class="slider" id="myRange4"></div></th>
+              <th>$<input type="text" id="price5" name="price5" size="8"
+                title="Enter price of car." onchange="calculate();">
+                <div class="slider" id="myRange5"></div></th>
+            </tr>
+            <tr class="snd">
+              <td>Mpg1<input type="text" id="mpg1"
+                    name="mpg1" title="Enter mile per gallon."
+                    size="6" onchange="calculate();">
+                    <div class="slider" id="myRange6"></div></td>
+              <td>$/mo<input type="text" id="cel11a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel11b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel21a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel21b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel31a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel31b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel41a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel41b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel51a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel51b" size="6"
+                    title="Do not enter value here"></td>
+
+            </tr>
+            <tr class="thr">
+              <td>Mpg2<input type="text" id="mpg2" name="mpg2" size="6"
+                    title="Enter mile per gallon." onchange="calculate">
+                    <div class="slider" id="myRange7"></div></td>
+              <td>$/mo<input type="text" id="cel12a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel12b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel22a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel22b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel32a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel32b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel42a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel42b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel52a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel52b" size="6"
+                    title="Do not enter value here"></td>
+            </tr>
+            <tr class="frd">
+              <td>Mpg3<input type="text" id="mpg3" name="mpg3" size="6"
+                    title="Enter mile per gallon." onchange="calculate();">
+                    <div class="slider" id="myRange8"></div></td>
+              <td>$/mo<input type="text" id="cel13a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel13b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel23a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel23b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel33a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel33b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel43a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel43b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel53a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel53b" size="6"
+                    title="Do not enter value here"></td>
+            </tr>
+            <tr class="fif">
+              <td>Mpg4<input type="text" id="mpg4" name="mpg4" size="6"
+                    title="Enter mile per gallon." onchange="calculate();">
+                    <div class="slider" id="myRange9"></div></td>
+              <td>$/mo<input type="text" id="cel14a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel14b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel24a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel24b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel34a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel34b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel44a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel44b" size="6"
+                    title="Do not enter value here"></td>
+              <td>$/mo<input type="text" id="cel54a" size="6"
+                    title="Do not enter value here"><br>
+                    $/mi<input type="text" id="cel54b" size="6"
+                    title="Do not enter value here"></td>
+            </tr>
+
+          </table>
+
+         </div> <!-- end tab1 -->
+          <div id="tabs-2" style="display: none;">
+
+
+	        <div id="container">
+		        <div id="header">
+			        <h1>Car Model and Price</h1>
+            </div>
+		      <div id="content">
+		        <h2>Drag the slider to the end to filter the Price</h2>
+          <div id="price-range">
+
+        	   <fieldset>
+              <label for="min">Minimum Price:</label>
+              <select id="min" name="min">
+                <option value="1000">1000</option>
+                <option value="10000">10000</option>
+                <option value="20000">20000</option>
+                <option value="30000">30000</option>
+                <option value="40000">40000</option>
+                <option value="50000">50000</option>
+                <option value="60000">60000</option>
+                <option value="70000">70000</option>
+                <option value="80000">80000</option>
+                <option value="90000">90000</option>
+             </select>
+             <br/>
+             <label for="max">Maximum Price:</label>
+             <select id="max" name="max">
+                <option value="10000">10000</option>
+                <option value="20000">20000</option>
+                <option value="30000">30000</option>
+                <option value="40000">40000</option>
+                <option value="50000">50000</option>
+                <option value="60000">60000</option>
+                <option value="70000">70000</option>
+                <option value="80000">80000</option>
+                <option value="90000">90000</option>
+                <option value="100000">100000</option>
+             </select>
+            </fieldset>
+
+          </div>
+
+           <table class="data">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>TypeCar</th>
+                <th>Year</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>203A</td>
+                <td>Accura </td>
+                <td>NewCar</td>
+                <td>2013</td>
+                <td>$25000</td>
+             </tr>
+             <tr>
+                <td>141B</td>
+                <td>Acura</td>
+                <td>UsedCar</td>
+                <td>2003</td>
+                <td>$30210</td>
+             </tr>
+             <tr>
+                <td>2031</td>
+                <td>AlfaRomeo</td>
+                <td>UsedCar</td>
+                <td>2015</td>
+                <td>$43000</td>
+              </tr>
+              <tr>
+                <td>007F</td>
+                <td>Ford </td>
+                <td>UsedCar</td>
+                <td>2003</td>
+                <td>$50240</td>
+              </tr>
+              <tr>
+                <td>8A05</td>
+                <td>Kia </td>
+                <td>NewCar</td>
+                <td>2016</td>
+                <td>$60100</td>
+              </tr>
+              <tr>
+                <td>8A05</td>
+                <td>Jeep</td>
+                <td>NewCar</td>
+                <td>2014</td>
+                <td>$70500</td>
+              </tr>
+              <tr>
+                <td>8A05</td>
+                <td>Jeep </td>
+                <td>UsedCar</td>
+                <td>2008</td>
+                <td>$87800</td>
+              </tr>
+              <tr>
+                <td>8A05</td>
+                <td>ToYoTa </td>
+                <td>UsedCar</td>
+                <td>2003</td>
+                <td>$5000</td>
+              </tr>
+              <tr>
+                <td>8A05</td>
+                <td>Cherrolet </td>
+                <td>UsedCar</td>
+                <td>2016</td>
+                <td>$100000</td>
+              </tr>
+              <tr>
+                <td>6636</td>
+                <td>Ford </td>
+                <td>UsedCar</td>
+                <td>2009</td>
+                <td>$54500</td>
+              </tr>
+            </tbody>
+  	       </table>
+
+	         </div>
+          </div>
+
+
+        </div> <!-- end tab2-->
+        <div id="tabs-3" style="display: none;">
+          <h2>Some options by picture</h2>
+
+        </div> <!--end tab3-->
+        </div> <!-- end tabs -->
+
+          <br><br>
+          <input type="button"  value="Calculate" title="Click this botton!"
+          onclick="calculate();">
+
+        </form>
+        <!-- this is Javascript program to make the form work-->
+        <script>
+            function calculate() {
+             //Get information from the inputform to calculate
+              var price = document.getElementById('price').value;
+              var price1 = document.getElementById('price1').value ;
+              var price2 = document.getElementById('price2').value ;
+              var price3 = document.getElementById('price3').value ;
+              var price4 = document.getElementById('price4').value ;
+              var price5 = document.getElementById('price5').value ;
+              var mpg1  = document.getElementById('mpg1').value ;
+              var mpg2  = document.getElementById('mpg2').value ;
+              var mpg3  = document.getElementById('mpg3').value ;
+              var mpg4  = document.getElementById('mpg4').value ;
+
+
+
+
+
+              //Calculate the payment. With 20% downpay and pay the rest in 03 yrs.
+              var cel11a = cel12a = (price1 - (price1*20 / 100))/36;
+              var cel13a = cel14a = (price1  - (price1* 20 / 100))/36;
+              var cel21a = cel22a = cel23a = cel24a = (price2 - (price2* 20 / 100))/36;
+              var cel31a = cel32a = cel33a = cel34a = (price3 - (price3* 20 / 100))/36 ;
+              var cel41a = cel42a = cel43a = cel44a = (price4 - (price4* 20 / 100))/36;
+              var cel51a = cel52a = cel53a = cel54a = (price5 - (price5* 20 / 100))/36;
+              var cel11b = price / mpg1;
+              var cel21b = cel31b = cel41b =cel51b =  price / mpg1;
+              var cel12b = cel22b = cel32b = cel42b = cel52b =  price / mpg2;
+              var cel13b = cel23b = cel33b = cel43b = cel53b = price / mpg3;
+              var cel14b = cel24b = cel34b = cel44b = cel54b = price / mpg4;
+
+
+
+
+              // check infinity number and fulfill payment of  month and driven
+              if (!isNaN(cel11a, cel12a, cel13a, cel14a, cel21a, cel22a,
+                 cel23a, cel24a, cel31a, cel32a, cel33a, cel34a,
+                 cel41a, cel42a, cel43a, cel44a, cel51a, cel52a,
+                 cel53a, cel54a, cel11b != Number.POSITIVE_INFINITY) &&
+               (cel11a, cel12a, cel13a, cel14a, cel21a, cel22a,
+                  cel23a, cel24a, cel31a, cel32a, cel33a, cel34a,
+                   cel41a, cel42a, cel43a, cel44a, cel51a, cel52a,
+                  cel53a, cel54a, cel11b != Number.NEGATIVE_INFINITY))
+              {
+                  document.getElementById('cel11a').value = round(cel11a);
+                  document.getElementById('cel12a').value = round(cel12a);
+                  document.getElementById('cel13a').value = round(cel13a);
+                  document.getElementById('cel14a').value = round(cel14a);
+                  document.getElementById('cel21a').value = round(cel21a);
+                  document.getElementById('cel22a').value = round(cel22a);
+                  document.getElementById('cel23a').value = round(cel23a);
+                  document.getElementById('cel24a').value = round(cel24a);
+                  document.getElementById('cel31a').value = round(cel31a);
+                  document.getElementById('cel32a').value = round(cel32a);
+                  document.getElementById('cel33a').value = round(cel33a);
+                  document.getElementById('cel34a').value = round(cel34a);
+                  document.getElementById('cel41a').value = round(cel41a);
+                  document.getElementById('cel42a').value = round(cel42a);
+                  document.getElementById('cel43a').value = round(cel43a);
+                  document.getElementById('cel44a').value = round(cel44a);
+                  document.getElementById('cel51a').value = round(cel51a);
+                  document.getElementById('cel52a').value = round(cel52a);
+                  document.getElementById('cel53a').value = round(cel53a);
+                  document.getElementById('cel54a').value = round(cel54a);
+
+
+                  document.getElementById('cel11b').value = round(cel11b);
+                  document.getElementById('cel12b').value = round(cel12b);
+                  document.getElementById('cel13b').value = round(cel13b);
+                  document.getElementById('cel14b').value = round(cel14b);
+                  document.getElementById('cel21b').value = round(cel21b);
+                  document.getElementById('cel22b').value = round(cel22b);
+                  document.getElementById('cel23b').value = round(cel23b);
+                  document.getElementById('cel24b').value = round(cel24b);
+                  document.getElementById('cel31b').value = round(cel31b);
+                  document.getElementById('cel32b').value = round(cel32b);
+                  document.getElementById('cel33b').value = round(cel33b);
+                  document.getElementById('cel34b').value = round(cel34b);
+                  document.getElementById('cel41b').value = round(cel41b);
+                  document.getElementById('cel42b').value = round(cel42b);
+                  document.getElementById('cel43b').value = round(cel43b);
+                  document.getElementById('cel44b').value = round(cel44b);
+                  document.getElementById('cel51b').value = round(cel51b);
+                  document.getElementById('cel52b').value = round(cel52b);
+                  document.getElementById('cel53b').value = round(cel53b);
+                  document.getElementById('cel54b').value = round(cel54b);
+
+              }
+              else {
+                  document.getElementById('cel11a').value = "n/a ";
+                  document.getElementById('cel12a').value = " ";
+                  document.getElementById('cel13a').value = " ";
+                  document.getElementById('cel14a').value =  " ";
+                  document.getElementById('cel21a').value = " ";
+                  document.getElementById('cel22a').value = " ";
+                  document.getElementById('cel23a').value = " ";
+                  document.getElementById('cel24a').value = " ";
+                  document.getElementById('cel31a').value = " ";
+                  document.getElementById('cel32a').value = " ";
+                  document.getElementById('cel33a').value = " ";
+                  document.getElementById('cel34a').value = " ";
+                  document.getElementById('cel41a').value = " ";
+                  document.getElementById('cel42a').value = " ";
+                  document.getElementById('cel43a').value = " ";
+                  document.getElementById('cel44a').value = " ";
+                  document.getElementById('cel51a').value = " ";
+                  document.getElementById('cel52a').value = " ";
+                  document.getElementById('cel53a').value = " ";
+                  document.getElementById('cel54a').value = " ";
+
+                  document.getElementById('cel11b').value = "n/A";
+                  document.getElementById('cel12b').value = " ";
+                  document.getElementById('cel13b').value = " ";
+                  document.getElementById('cel14b').value =  " ";
+                  document.getElementById('cel21b').value = " ";
+                  document.getElementById('cel22b').value = " ";
+                  document.getElementById('cel23b').value = " ";
+                  document.getElementById('cel24b').value = " ";
+                  document.getElementById('cel31b').value = " ";
+                  document.getElementById('cel32b').value = " ";
+                  document.getElementById('cel33b').value = " ";
+                  document.getElementById('cel34b').value = " ";
+                  document.getElementById('cel41b').value = " ";
+                  document.getElementById('cel42b').value = " ";
+                  document.getElementById('cel43b').value = " ";
+                  document.getElementById('cel44b').value = " ";
+                  document.getElementById('cel51b').value = " ";
+                  document.getElementById('cel52b').value = " ";
+                  document.getElementById('cel53b').value = " ";
+                  document.getElementById('cel54b').value = " ";
+                }
+
+            }
+            // round to 02 decimal
+
+            function round(x) {
+              return Math.round(x*100)/100;
+            }
+            //implement slider with id= my Range
+            $("#myRange").slider({
+              range: 10,
+              min: 1.0,
+              max: 10.0,
+              value: 0,
+              step: 0.01,
+              slide: function( event, ui) {
+                $('#price').val(ui.value); //update value of price
+                $(ui.value).val($('#price').val());
+
+              }
+            });// end slider0
+            $("#price").on("keyup", function () {
+                var ovalue = $("#myRange").slider("option", "value");
+                var nvalue = ($(this).val());
+                if (isNaN(nvalue) == false || nvalue > -10 || nvalue < 10 ){
+                    // check if the value is in the range
+                    $("#myRange").slider("value", nvalue);
+                  }
+              });// end chang slider when user input
+
+            $("#myRange1").slider({
+              range: 100,
+              min: 1000,
+              max: 100000,
+              value: 0,
+              slide: function( event, ui) {
+                $('#price1').val(ui.value); //update value of price
+                $(ui.value).val($('#price1').val());
+              }
+            });// end slider1
+            $("#price1").on("keyup", function () {
+                var ovalue = $("#myRange1").slider("option", "value");
+                var nvalue = ($(this).val());
+                if (isNaN(nvalue) == false || nvalue > -10 || nvalue < 10 ){
+                    // check if the value is in the range
+                    $("#myRange1").slider("value", nvalue);
+                  }
+              });// end chang slider when user input
+
+            $("#myRange2").slider({
+              range: 100,
+              min: 1000,
+              max: 100000,
+              value: 0,
+              slide: function( event, ui) {
+                $('#price2').val(ui.value); //update value of price
+                $(ui.value).val($('#price2').val());
+              }
+            });// end slider2
+            $("#price2").on("keyup", function () {
+                var ovalue = $("#myRange2").slider("option", "value");
+                var nvalue = ($(this).val());
+                if (isNaN(nvalue) == false || nvalue > -10 || nvalue < 10 ){
+                    // check if the value is in the range
+                    $("#myRange2").slider("value", nvalue);
+                  }
+              });// end chang slider when user input
+
+            $("#myRange3").slider({
+              range: 100,
+              min: 1000,
+              max: 100000,
+              value: 0,
+              slide: function( event, ui) {
+                $('#price3').val(ui.value); //update value of price
+                $(ui.value).val($('#price3').val());
+              }
+            });// end slider3
+            $("#price3").on("keyup", function () {
+                var ovalue = $("#myRange3").slider("option", "value");
+                var nvalue = ($(this).val());
+                if (isNaN(nvalue) == false || nvalue > -10 || nvalue < 10 ){
+                    // check if the value is in the range
+                    $("#myRange3").slider("value", nvalue);
+                  }
+              });// end chang slider when user input
+
+            $("#myRange4").slider({
+              range: 100,
+              min: 1000,
+              max: 100000,
+              value: 0,
+              slide: function( event, ui) {
+                $('#price4').val(ui.value); //update value of price
+                $(ui.value).val($('#price4').val());
+              }
+            });// end slider4
+            $("#price4").on("keyup", function () {
+                var ovalue = $("#myRange4").slider("option", "value");
+                var nvalue = ($(this).val());
+                if (isNaN(nvalue) == false || nvalue > -10 || nvalue < 10 ){
+                    // check if the value is in the range
+                    $("#myRange4").slider("value", nvalue);
+                  }
+              });// end chang slider when user input
+
+            $("#myRange5").slider({
+              range: 100,
+              min: 1000,
+              max: 100000,
+              value: 0,
+              slide: function( event, ui) {
+                $('#price5').val(ui.value); //update value of price
+                $(ui.value).val($('#price5').val());
+              }
+            });// end slider5
+            $("#price5").on("keyup", function () {
+                var ovalue = $("#myRange5").slider("option", "value");
+                var nvalue = ($(this).val());
+                if (isNaN(nvalue) == false || nvalue > -10 || nvalue < 10 ){
+                    // check if the value is in the range
+                    $("#myRange5").slider("value", nvalue);
+                  }
+              });// end chang slider when user input
+
+            $("#myRange6").slider({
+              range: 10,
+              min: 1,
+              max: 50,
+              value: 0,
+              slide: function(event, ui) {
+                $('#mpg1').val(ui.value); //update value of fuel
+                $(ui.value).val($('#mpg1').val());
+              }
+            });// end slider6
+            $("#mpg1").on("keyup", function () {
+                var ovalue = $("#myRange6").slider("option", "value");
+                var nvalue = ($(this).val());
+                if (isNaN(nvalue) == false || nvalue > -10 || nvalue < 10 ){
+                    // check if the value is in the range
+                    $("#myRange6").slider("value", nvalue);
+                  }
+              });// end change slider when user input
+
+            $("#myRange7").slider({
+              range: 10,
+              min: 1,
+              max: 50,
+              value: 0,
+              slide: function( event, ui) {
+                $('#mpg2').val(ui.value); //update value of mpg2 fuel
+                $(ui.value).val($('#mpg2').val());
+              }
+            });// end slider7
+            $("#mpg2").on("keyup", function () {
+                var ovalue = $("#myRange7").slider("option", "value");
+                var nvalue = ($(this).val());
+                if (isNaN(nvalue) == false || nvalue > -10 || nvalue < 10 ){
+                    // check if the value is in the range
+                    $("#myRange7").slider("value", nvalue);
+                  }
+              });// end chang slider when user input
+
+            $("#myRange8").slider({
+              range: 10,
+              min: 1,
+              max: 50,
+              value: 0,
+              slide: function( event, ui) {
+                $('#mpg3').val(ui.value); //update value of mpg3 fuel
+                $(ui.value).val($('#mpg3').val());
+              }
+            });// end slider8
+            $("#mpg3").on("keyup", function () {
+                var ovalue = $("#myRange8").slider("option", "value");
+                var nvalue = ($(this).val());
+                if (isNaN(nvalue) == false || nvalue > -10 || nvalue < 10 ){
+                    // check if the value is in the range
+                    $("#myRange8").slider("value", nvalue);
+                  }
+              });// end chang slider when user input
+
+            $("#myRange9").slider({
+              range: 10,
+              min: 1,
+              max: 50,
+              value: 0,
+              slide: function( event, ui) {
+                $('#mpg4').val(ui.value); //update value of mpg4 fuel
+                $(ui.value).val($('#mpg4').val());
+              }
+            });// end slider9
+            $("#mpg4").on("keyup", function () {
+                var ovalue = $("#myRange9").slider("option", "value");
+                var nvalue = ($(this).val());
+                if (isNaN(nvalue) == false || nvalue > -10 || nvalue < 10 ){
+                    // check if the value is in the range
+                    $("#myRange9").slider("value", nvalue);
+                  }
+              });// end chang slider when user input
+
+           //tabs
+             $('#tabs').tabs();
+        </script>
+         <!-- footer and coyright -->
+        <footer>
+          <p>Copyright 2017, William<p>
+        </footer>
+        <!-- Imprese Me: I tried to give difference options for user to
+        consider which one is the best.
+        Addition, A lot of visual image which implemented and aplied with
+        jQuery-ui tab and slider Widgets.
+      -->
+
+
+    </body>
+</html>

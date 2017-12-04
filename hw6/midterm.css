@@ -1,0 +1,100 @@
+/** midtem.css file
+Name: William Vo
+Description: css file is modified the find the best easy to look  and
+            clear to use.
+**/
+header, hgroup, div, nav, footer, figure, figcaption, aside, label, select, section, article {
+	display: block;
+}
+header {
+  text-align: center;
+	padding: 1em;
+	background-image: url("bg_banner.jpg");
+	font-size: 110%
+
+}
+
+body {
+	background-image: url("aventador.png");
+	background-color: #ffcc66;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+/* try to make diference style colume of table */
+.tripeTable col:first-child{  background-color: #99CC99}
+.stripeTable .col0{ background-color: #cfcfcf; }
+.stripeTable .col1{ background-color: #ffffff; }
+
+.stripeTable td, th{
+        border: 1px solid black;
+
+}
+th {
+       background-color: #ccccc6;
+}
+td, nav {
+	text-align: center;
+}
+footer {
+	text-align: center;
+	font-style: italic;
+	color: blue;
+}
+h2, .label {
+	color: red;
+}
+img {
+	float: right;
+	width:25%;
+	height: 22%
+}
+.ui-slider-horizontal {
+	height: 10px;
+    width: 200px;
+	left: 10px;
+}
+
+.ui-slider .ui-slider-handle {
+    height: 15px;
+    width: 10px;
+    padding-top: 5px;
+}
+.slider {
+	display:inline-block;
+}
+.slider-wrapper {
+  display: inline-block;
+  width: 20px;
+  height: 150px;
+  padding: 0;
+}
+.ui-button {
+padding : 0.4em 1em;
+display : inline-block;
+position : relative;
+line-height : normal;
+margin-right : 0.1em;
+cursor : pointer;
+vertical-align : middle;
+text-align : center;
+overflow : visible;
+} 
+
+.label{
+	display:inline-block;
+}
+#tabs-3 {
+	background-image: url("Cheverlet.png");
+
+}
+#dealdata label.error {
+	font-size: 0.8em;
+	color: #F00;
+	font-weight: bold;
+	display: block;
+	margin-left: 215px;
+}
+#dealdata input.error, #dealdata select.error {
+	background: #FFA9B8;
+	border: 1px solid red;
+}
