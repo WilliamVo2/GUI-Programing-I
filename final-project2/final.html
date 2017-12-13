@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+  File: final.html
+  4610 Assignment: Smart API Recipe
+  William Vo, Umass Lowell Computer Science, william_vo@student.uml.edu
+  Copyright (c) 2017 by William Vo. All rights reserved. May be freelly
+      coppied or excerpted for educational purposes with credit to the author.
+  Updated by Will on November 20, 2017 at 8:50 PM
+-->
+<html lang="en">
+<!-- Name header here -->
+    <head>
+      <meta charset="utf-8">
+      <title >Smart API Recipe</title>
+      <link href="midterm.css" rel="stylesheet" >
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <script src="_js/jquery.min.js"></script>
+      <script src="jquery_validate/jquery.validate.min.js"></script>
+      <script>
+        $(document).ready(function(){
+          $('#foodata').validate({
+            rules: {
+              ingre1: {
+                required: true,
+                ingre1: true
+              }
+
+            } //end enter ingre
+
+            }, // end rules
+            messages: {
+              ingre1: {
+                required: "Enter your ingrdients.",
+                ingre1: "This is not food!"
+              }
+
+
+
+            } //end enter ingre
+
+            } // end messages
+
+          }); // end validate
+          $('[title]').tooltip();
+        }); //end ready()
+      </script>
+    </head>
+    <body>
+        <header>
+          <h1>Smart API Recipe</h1>
+        </header>
+        <img src="img_tree.png" alt="Tree" width="350" height="500">
+      <!-- Creat the table, let input data be used which store in
+      form name dealdata -->
+      <!--  <form action="process.html" method="post" name="foodata" id="foodata">
+      -->
+      <form name="foodata" id="foodata">
+          <h2>Enter Information:</h2>
+          <label for="ingre" class="label"><b>Ingredients:<b></label><br>
+          <div class="left-bar">
+
+              <input type="text" id="ingre1" name ="ingre1" size="10"
+                title="Enter ingredient" onchange="submit();"> <br><br>
+          <!-- -->
+
+                <input type="text" id="ingre1" name ="ingre1" size="10"
+                  title="Enter ingredient" onchange="submit();"> <br><br>
+            <!-- -->
+
+                <input type="text" id="ingre2" name ="ingre2" size="10"
+                  title="Enter ingredient" onchange="submit();"> <br><br>
+            <!-- -->
+
+                <input type="text" id="ingre3" name ="ingre3" size="10"
+                  title="Enter ingredient" onchange="submit();"> <br><br>
+            <!-- -->
+
+                <input type="text" id="ingre4" name ="ingre4" size="10"
+                  title="Enter ingredient." onchange="submit();"> <br><br>
+            <!-- -->
+
+                <input type="text" id="ingre5" name ="ingre5" size="10"
+                  title="Enter ingredient." onchange="submit();"> <br><br>
+            <!-- -->
+
+             <br><br>
+             <div>
+       				<input type="submit" name="submit" id="submit" value="Submit">
+       			</div>
+           </div> <!--  end left-bar-->
+           <div class="main">
+             <input type="text" id="ingre4" name ="ingre4" size="60" width="50"
+               height="50"
+               title="Enter ingredient." onchange="submit();"> <br><br>
+
+             <input type="text" id="ingre4" name ="ingre4" size="60" width="50"
+                 height="50"
+                 title="Enter ingredient." onchange="submit();"> <br><br>
+
+             <input type="text" id="ingre4" name ="ingre4" size="60" width="50"
+                  height="50"
+                   title="Enter ingredient." onchange="submit();"> <br><br>
+           </div> <!-- end main-->
+
+        </form>
+        <!-- this is Javascript program to make the form work-->
+        <script>
+            function submit() {
+             //Get information from the inputform to calculate
+              var ingre1 = document.getElementById('ingre1').value;
+
+
+
+
+
+              //Calculate the payment. With 20% downpay and pay the rest in 03 yrs.
+
+
+
+
+
+              // check infinity number and fulfill payment of  month and driven
+
+                  document.getElementById('ingre1').value = round(cel11a);
+
+
+
+
+
+            }
+
+
+
+
+        </script>
+         <!-- footer and coyright -->
+        <footer>
+          <p>Copyright 2017, Teams: William<p>
+        </footer>
+
+    </body>
+</html>
