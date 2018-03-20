@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!--
+  File: final.html
+  4610 Assignment: Smart API Recipe
+  William Vo, Umass Lowell Computer Science, william_vo@student.uml.edu
+    - workeds on GUI
+  Sony Thach, sony_thach@student.uml.edu
+    - worked on API
+  Kshitij Karke, kshitij_karke@student.uml.edu
+    - worked on submit, reset, and FaceBook share buttons
+  Copyright (c) 2017 by William Vo. All rights reserved. May be freelly
+      coppied or excerpted for educational purposes with credit to the author.
+  Updated by Will on November 20, 2017 at 8:50 PM
+-->
+<html lang="en">
+<!-- Name header here -->
+
+<head>
+    <meta charset="utf-8">
+    <title>Smart API Recipe</title>
+    <link href="midterm.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="_js/final.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Smart API Recipe</h1>
+    </header>
+
+    <!-- Creat the table, let input data be used which store in
+      form name foodprocess -->
+    <form action="process.html" method="get" name="foodata" id="foodata">
+
+        <!--  <form name="foodata" id="foodata"> -->
+        <br>
+        <label for="ingre" class="label"><b>Ingredients you have:</b></label><br>
+        <div class="left-bar">
+
+            <input type="text" placeholder="Ingredient 1" id="ingre1" name="ingre1" size="10" title="Enter ingredient"> <br><br>
+            <!-- -->
+
+            <input type="text" placeholder="Ingredient 2" id="ingre2" name="ingre2" size="10" title="Enter ingredient"> <br><br>
+            <!-- -->
+
+            <input type="text" placeholder="Ingredient 3" id="ingre3" name="ingre3" size="10" title="Enter ingredient"> <br><br>
+            <!-- -->
+
+            <input type="text" placeholder="Ingredient 4" id="ingre4" name="ingre4" size="10" title="Enter ingredient."> <br><br>
+            <!-- -->
+
+            <input type="text" placeholder="Ingredient 5" id="ingre5" name="ingre5" size="10" title="Enter ingredient."> <br><br>
+            <!-- -->
+
+            <br>
+            <!-- checkBoxes for diet options -->
+            <div class="checkBoxContainer">
+                <label><b>Select Diet (Optional):</b></label>
+                <br>
+                <label>
+                <input type="checkbox" id="highProteinCheck">High-Protein
+                </label>
+                <br>
+                <label>
+                <input type="checkbox" id="lowCarbCheck">Low-Carb
+                </label>
+                <br>
+                <label>
+                <input type="checkbox" id="lowFatCheck">Low-Fat
+                </label>
+            </div>
+            <br><br>
+            <button class="button button2" type="reset" value="Reset" onClick="window.location.reload()"> Reset </button>
+            <button class="button button1" type="submit" name="submit" id="submit" value="Submit"> Submit </button>
+            <!-- facebook share button -->
+            <div class="fb-share-button" data-href="http://weblab.cs.uml.edu/~sthach/project/final.html" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+        </div>
+        <!--  end left-bar-->
+
+        <!-- recipe content -->
+        <div id="tabs">
+            <ul>
+                <li><a href="#recipe1"><span>Recipe1</span></a></li>
+                <li><a href="#recipe2"><span>Recipe2</span></a></li>
+                <li><a href="#recipe3"><span>Recipe3</span></a></li>
+                <li><a href="#recipe4"><span>Recipe4</span></a></li>
+                <li><a href="#recipe5"><span>Recipe5</span></a></li>
+                <li><a href="#recipe6"><span>Recipe6</span></a></li>
+                <li><a href="#recipe7"><span>Recipe7</span></a></li>
+            </ul>
+
+            <!--  <div class="recipeList"> -->
+            <div id="recipe1" style="display: block;">
+                <img id="recipeImage1" src="">
+                <p id="recipeName1"></p>
+                <p class="recipeIngredients" id="recipeIngredients1">
+                </p>
+                <!-- diet options label-->
+                <div class="dietLabels">
+                    <p id="dietLabel1-1"></p>
+                    <p id="dietLabel1-2"></p>
+                    <p id="dietLabel1-3"></p>
+                </div>
+                <!-- nutrition table for recipe1-->
+                <table class="nutritionTable" id="recipe1NutritionTable">
+                    <tr>
+                        <th colspan="2">Nutrition Facts (per Serving)</th>
+                    </tr>
+                    <tr>
+                        <td>Calories</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrates</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Cholesterol</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <button class="button button1" type="button" id="instructionButton" name="instruct" value="instruction">instruction</button>
+            </div>
+
+            <div id="recipe2" style="display: none;">
+                <img id="recipeImage2" src="">
+                <p id="recipeName2"></p>
+                <p class="recipeIngredients" id="recipeIngredients2">
+                </p>
+                <div class="dietLabels">
+                    <p id="dietLabel2-1"></p>
+                    <p id="dietLabel2-2"></p>
+                    <p id="dietLabel2-3"></p>
+                </div>
+                <!-- nutrition table for recipe2-->
+                <table class="nutritionTable" id="recipe2NutritionTable">
+                    <tr>
+                        <th colspan="2">Nutrition Facts (per Serving)</th>
+                    </tr>
+                    <tr>
+                        <td>Calories</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrates</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Cholesterol</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <button class="button button1" type="button" id="instructionButton1" name="instruct" value="instruction">instruction</button>
+            </div>
+            <div id="recipe3" style="display: none;">
+                <img id="recipeImage3" src="">
+                <p id="recipeName3"></p>
+                <p class="recipeIngredients" id="recipeIngredients3">
+                </p>
+                <div class="dietLabels">
+                    <p id="dietLabel3-1"></p>
+                    <p id="dietLabel3-2"></p>
+                    <p id="dietLabel3-3"></p>
+                </div>
+                <!-- nutrition table for recipe3-->
+                <table class="nutritionTable" id="recipe3NutritionTable">
+                    <tr>
+                        <th colspan="2">Nutrition Facts (per Serving)</th>
+                    </tr>
+                    <tr>
+                        <td>Calories</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrates</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Cholesterol</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <button class="button button1" type="button" id="instructionButton2" name="instruct" value="instruction">instruction</button>
+            </div>
+
+            <div id="recipe4" style="display: none">
+                <img id="recipeImage4" src="">
+                <p id="recipeName4"></p>
+                <p class="recipeIngredients" id="recipeIngredients4">
+                </p>
+                <div class="dietLabels">
+                    <p id="dietLabel4-1"></p>
+                    <p id="dietLabel4-2"></p>
+                    <p id="dietLabel4-3"></p>
+                </div>
+                <!-- nutrition table for recipe4-->
+                <table class="nutritionTable" id="recipe4NutritionTable">
+                    <tr>
+                        <th colspan="2">Nutrition Facts (per Serving)</th>
+                    </tr>
+                    <tr>
+                        <td>Calories</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrates</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Cholesterol</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <button class="button button1" type="button" id="instructionButton3" name="instruct" value="instruction">instruction</button>
+            </div>
+
+            <div id="recipe5" style="display: none;">
+                <img id="recipeImage5" src="">
+                <p id="recipeName5"></p>
+                <p class="recipeIngredients" id="recipeIngredients5">
+                </p>
+                <div class="dietLabels">
+                    <p id="dietLabel5-1"></p>
+                    <p id="dietLabel5-2"></p>
+                    <p id="dietLabel5-3"></p>
+                </div>
+                <!-- nutrition table for recipe5-->
+                <table class="nutritionTable" id="recipe5NutritionTable">
+                    <tr>
+                        <th colspan="2">Nutrition Facts (per Serving)</th>
+                    </tr>
+                    <tr>
+                        <td>Calories</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrates</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Cholesterol</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <button class="button button1" type="button" id="instructionButton4" name="instruct" value="instruction">instruction</button>
+            </div>
+
+            <div id="recipe6" style="display: none;">
+                <img id="recipeImage6" src="">
+                <p id="recipeName6"></p>
+                <p class="recipeIngredients" id="recipeIngredients6">
+                </p>
+                <div class="dietLabels">
+                    <p id="dietLabel6-1"></p>
+                    <p id="dietLabel6-2"></p>
+                    <p id="dietLabel6-3"></p>
+                </div>
+                <!-- nutrition table for recipe6-->
+                <table class="nutritionTable" id="recipe6NutritionTable">
+                    <tr>
+                        <th colspan="2">Nutrition Facts (per Serving)</th>
+                    </tr>
+                    <tr>
+                        <td>Calories</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrates</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Cholesterol</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <button class="button button1" type="button" id="instructionButton5" name="instruct" value="instruction">instruction</button>
+            </div>
+            <div id="recipe7" style="display: none;">
+                <img id="recipeImage7" src="">
+                <p id="recipeName7"></p>
+                <p class="recipeIngredients" id="recipeIngredients7">
+                </p>
+                <div class="dietLabels">
+                    <p id="dietLabel7-1"></p>
+                    <p id="dietLabel7-2"></p>
+                    <p id="dietLabel7-3"></p>
+                </div>
+                <!-- nutrition table for recipe7-->
+                <table class="nutritionTable" id="recipe7NutritionTable">
+                    <tr>
+                        <th colspan="2">Nutrition Facts (per Serving)</th>
+                    </tr>
+                    <tr>
+                        <td>Calories</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrates</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Cholesterol</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Sodium</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <button class="button button1" type="button" id="instructionButton6" name="instruct" value="instruction">instruction</button>
+            </div>
+        </div>
+        <!-- end tabs-->
+        <!-- end main-->
+
+    </form>
+    <!-- this is Javascript program to make the form work-->
+    <script>
+    </script>
+    <!-- footer and coyright -->
+    <footer>
+        <p><b>Copyright 2017, Teams: William Vo, Sony Thach, Kshitij Karke</b>
+        </p>
+    </footer>
+
+</body>
+
+</html>
