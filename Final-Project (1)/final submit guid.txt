@@ -1,0 +1,29 @@
+Project submission guidelines
+
+This document details the requirements for a successful submission of a project at the end of the semester. It is not specific to any course; for whichever course that I am teaching that requires you to implement a term project I will expect you to follow these instructions. Any deviations can and will negatively impact your grade.
+
+Your project’s final submission must follow these guidelines for it to be considered for a good grade.
+
+    Think about what you would expect for a final submission, say, if you paid someone for this project / software.
+    Include the following:
+        A short report, describing the problem the project attempts to solve, its goals, alternative approaches to solving the problem, the chosen approach, and a justification for choosing it over other approaches (as appropriate for your case). Your report must list those parts of the project (source code files, Web pages, other) you have:
+            developed entirely by yourself;
+            acquired from people, sites, etc. (provide exact references where from) that were modified by you (specify the nature and extent of modifications you have made); and
+            acquired and used as-is (again, provide complete references -- make sure you are within legal rights to acquire and use these!).
+            A user manual. This should have (at least) two components -- as applicable:
+                Detailed, step-by-step, installation/initialization instructions. Here you will include all information about where to find the project (if deployed on a Web site), what platforms (both hardware and software) are necessary, how to compile/build it, etc. Important Note: this notwithstanding, do not expect us to go through any substantial installations in order to be able to test your project. I generally expect you to implement your project on WebLab (not any other platform), and to plan early for all software tools needed to be installed;
+                detailed instructions how to use the software;
+                do remember, though, that the best product is one that needs no user manual; the simpler you make your project, the easier it will be for everybody to use it (and for you to provide a manual). 
+            An archive of all developed and used files. In this archive you will include EVERYTHING! Source code files, header files, Web pages, database tables, Makefiles, your user manual, your report, pictures, anything else you have developed and/or used:
+
+                Archive name: yourLastName-yourFirstName_fullCourseNumberTerm-final-project.{zip | .tar | .gz} , where fullCourseNumberTerm looks like, e.g., comp4160f2017, comp4280f2017, comp5470f2017.
+
+                For Fall 2017 "my" submission archives would be named:
+                    Levkowitz-Haim_comp4160f2017-final-project.{zip | .tar | .gz}
+                    Levkowitz-Haim_comp4280f2017-final-project.{zip | .tar | .gz}
+                    Levkowitz-Haim_comp5470f2017-final-project.{zip | .tar | .gz} 
+                Submitted on Blackboard, Weblab, and GitHub. 
+
+    Important Note: most of you probably know that I am not too fond of Web documents / applications that only work with one brand of operating system and / or browser. A statement like "this works only on xxxx browser on yyyy OS" can get me unhappy real quick, so try to avoid this.
+
+

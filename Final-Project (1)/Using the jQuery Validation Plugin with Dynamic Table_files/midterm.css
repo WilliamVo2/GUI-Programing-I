@@ -1,0 +1,56 @@
+/** midtem.css file
+Name: William Vo
+Description: css file is modified the find the best easy to look  and
+            clear to use.
+**/
+header, hgroup, div, nav, footer, figure, figcaption, aside, label, select, section, article {
+	display: block;
+}
+header {
+  text-align: center;
+	padding: 1em;
+	background-image: url("bg_banner.jpg");
+	font-size: 110%
+
+}
+
+body {
+	background-color: #ffcc66;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+/* try to make diference style colume of table */
+.tripeTable col:first-child{  background-color: #99CC99}
+.stripeTable .col0{ background-color: #cfcfcf; }
+.stripeTable .col1{ background-color: #ffffff; }
+
+.stripeTable td, th{
+        border: 1px solid black;
+
+}
+th {
+       background-color: #ccccc6;
+}
+td, nav {
+	text-align: center;
+}
+footer {
+	text-align: center;
+	font-style: italic;
+}
+img {
+	float: right;
+	width:25%;
+	height: 22%
+}
+#dealdata label.error {
+	font-size: 0.8em;
+	color: #F00;
+	font-weight: bold;
+	display: block;
+	margin-left: 215px;
+}
+#dealdata input.error, #dealdata select.error {
+	background: #FFA9B8;
+	border: 1px solid red;
+}

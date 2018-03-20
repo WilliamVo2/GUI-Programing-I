@@ -1,0 +1,12 @@
+
+Step 1: Enter combinations of ingredients you might think makes a good dish 
+        into the input fields on left side of screen.
+
+Step 2: Select the type of diet type of food desired by checking the boxes
+        below the input fields. This is optional.
+
+Step 3: Click submit button to see recipes in the middle of the screen which 
+        can be navigated by clicking the tabs on top. 
+
+Step 4: The FaceBook share button below the Reset button can be used to share 
+        webpage on FaceBook.

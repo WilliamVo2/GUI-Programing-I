@@ -1,0 +1,11 @@
+
+The problem the project attempts to solve is for the user to make better use of 
+their leftover ingredients that they may have. The user can enter different 
+combinations of ingredients into our website to find recipes that they did not
+know they already have ingredients for. For this project, we used the Edamam
+Recipe Search API. We retrieved data from the API by submitting a HTTP Request 
+to the link designated by the API with the users ingredients attached within 
+the query string. The API returns a recipe data as a JSON reponse which we 
+parsed to display recipes onto the screen for the user. We are within legal 
+rights to use the API because we signed up for the free version that comes 
+with the restriction of 5000 API calls per month.
